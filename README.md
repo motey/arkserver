@@ -52,8 +52,10 @@ A set of required environment variables have default values provided as part of 
 
 | Variable | Value | Description |
 | - | - | - |
+| TZ | N/A | Timezone |
 | am_ark_SessionName | `Ark Server` | Server name as it will show on the steam server list |
 | am_serverMap | `TheIsland` | Game map to load |
+| am_ark_ServerPassword | N/A | Server password to connect |
 | am_ark_ServerAdminPassword | `k3yb04rdc4t` | Admin password to be used via ingame console or RCON |
 | am_ark_MaxPlayers | `70` | Max concurrent players in the game |
 | am_ark_QueryPort | `27015` | Steam query port (allows the server to show up on the steam list) |
@@ -61,6 +63,12 @@ A set of required environment variables have default values provided as part of 
 | am_ark_RCONPort | `32330` | RCON port |
 | am_arkwarnminutes | `15` | Number of minutes to wait/warn players before updating/restarting |
 | am_arkflag_crossplay | `false` | Allow crossyplay with Players on Epic |
+| am_arkAutoUpdateOnStart=true | - | - |
+| am_arkBackupPreUpdate=true | - | - |
+| am_arkMaxBackupSizeMB=500 | - | - |
+| am_arkflag_crossplay | `false` | Allow crossyplay with Players on Epic |
+| am_arkflag_NoBattleEye | `false` | Disable BattleEye  |
+| am_ark_GameModIds | N/A | List of game mod ids, comma delimited |
 
 ### Adding Additional Variables
 
