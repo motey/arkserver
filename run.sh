@@ -91,11 +91,6 @@ fi
 [ -f /ark/config/Engine.ini ] && ln -sf /ark/config/Engine.ini /ark/server/ShooterGame/Saved/Config/LinuxServer/Engine.ini
 [ -f /ark/config/Game.ini ] && ln -sf /ark/config/Game.ini /ark/server/ShooterGame/Saved/Config/LinuxServer/Game.ini
 [ -f /ark/config/GameUserSettings.ini ] && ln -sf /ark/config/GameUserSettings.ini /ark/server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
-# Copy configs
-#[ -f /ark/config/AllowedCheaterSteamIDs.txt ] && cp -f /ark/config/AllowedCheaterSteamIDs.txt /ark/server/ShooterGame/Saved/AllowedCheaterSteamIDs.txt
-#[ -f /ark/config/Engine.ini ] && cp -f /ark/config/Engine.ini /ark/server/ShooterGame/Saved/Config/LinuxServer/Engine.ini
-#[ -f /ark/config/Game.ini ] && cp -f /ark/config/Game.ini /ark/server/ShooterGame/Saved/Config/LinuxServer/Game.ini
-#[ -f /ark/config/GameUserSettings.ini ] && cp -f /ark/config/GameUserSettings.ini /ark/server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 
 if [[ "$VALIDATE_SAVE_EXISTS" = true && ! -z "$am_ark_AltSaveDirectoryName" && ! -z "$am_serverMap" ]]; then
 	savepath="/ark/server/ShooterGame/Saved/$am_ark_AltSaveDirectoryName"
