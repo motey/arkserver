@@ -43,6 +43,45 @@ $ docker run -d \
     -p 7777:7777 -p 7777:7777/udp \ # gameserver port
     jkread/arkserver
 ```
+Docker compose sample (change or remove environment variables as the suit you):
+```version: '3'
+volumes:
+  ark:
+  steam:
+services:
+  ark:
+    image: jkread/arkserver:latest
+    container_name: ark
+    network_mode: bridge
+    restart: always
+    ports:
+      - 7777:7777
+      - 7777:7777/udp
+      - 7778:7778
+      - 7778:7778/udp
+      - 27015:27015
+      - 27015:27015/udp
+    volumes:
+      - ark:/ark
+      - steam:/home/steam
+    environment:
+      - TZ=America/Chicago
+      - am_ark_SessionName=Ark Docker Session
+      - am_serverMap=TheIsland
+      - am_ark_ServerPassword=letmein
+      - am_ark_ServerAdminPassword=pleasechangeme
+      - am_ark_MaxPlayers=70
+      - am_ark_QueryPort=27015
+      - am_ark_Port=7778
+      - am_ark_RCONPort=32330
+      - am_arkwarnminutes=15
+      - am_arkAutoUpdateOnStart=true
+      - am_arkBackupPreUpdate=true
+      - am_arkMaxBackupSizeMB=500
+      - am_arkflag_crossplay=false
+      - am_arkflag_NoBattlEye=true
+      - am_ark_GameModIds=111111111,566885854,731604991,761535755,821530042,889745138,1404697612
+```
 
 If the exposed ports are modified (in the case of multiple containers/servers on the same host) the `arkmanager` config will need to be modified to reflect the change as well. This is required so that `arkmanager` can properly check the server status and so that the ARK server itself can properly publish its IP address and query port to steam.
 
