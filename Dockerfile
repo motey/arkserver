@@ -23,8 +23,7 @@ COPY arkmanager/instance.cfg /etc/arkmanager/instances/main.cfg
 COPY run.sh /arkserver/run.sh
 COPY log.sh /arkserver/log.sh
 
-RUN chown -R steam:steam /home/steam /ark && \
-    chown -R steam:steam /home/steam /arkserver
+RUN chown -R steam:steam /home/steam /ark /arkserver
 
 RUN echo "%sudo   ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers && \
     usermod -a -G sudo steam && \
