@@ -9,25 +9,28 @@ RUN dpkg --add-architecture i386 && \
     echo steam steam/license note '' | debconf-set-selections && \
     apt-get install -y ca-certificates steamcmd language-pack-en
 
-RUN ln -s /usr/games/steamcmd /usr/local/bin
-RUN adduser --gecos "" --disabled-password steam
+RUN ln -s /usr/games/steamcmd /usr/local/bin && \
+    adduser --gecos "" --disabled-password steam
 
 RUN curl -sL https://git.io/arkmanager | bash -s steam && \
     ln -s /usr/local/bin/arkmanager /usr/bin/arkmanager
 
+RUN mkdir /ark && \
+    mkdir /arkserver
+    
 COPY arkmanager/arkmanager.cfg /etc/arkmanager/arkmanager.cfg
 COPY arkmanager/instance.cfg /etc/arkmanager/instances/main.cfg
-COPY run.sh /home/steam/run.sh
-COPY log.sh /home/steam/log.sh
+COPY run.sh /arkserver/run.sh
+COPY log.sh /arkserver/log.sh
 
-RUN mkdir /ark && \
-    chown -R steam:steam /home/steam /ark
+RUN chown -R steam:steam /home/steam /ark && \
+    chown -R steam:steam /home/steam /arkserver
 
 RUN echo "%sudo   ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers && \
     usermod -a -G sudo steam && \
     touch /home/steam/.sudo_as_admin_successful
 
-WORKDIR /home/steam
+WORKDIR /arkserver
 USER steam
 
 ENV am_ark_SessionName="Ark Server" \
