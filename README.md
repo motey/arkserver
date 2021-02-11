@@ -140,7 +140,8 @@ Inside the `/ark` volume there are several directories containing server related
 ### GameUserSettings.ini
 
 Example [GameUserSettings.ini](https://pastebin.com/Td24Ku2E)
-You GameUserSettings.ini must contain the following or it will be overwritten.
+
+Your GameUserSettings.ini must contain the following or it will be overwritten:
 
 ```
 [/Script/ShooterGame.ShooterGameUserSettings]
