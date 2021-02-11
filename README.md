@@ -19,8 +19,8 @@ For more information on `arkmanager`, see the repo here: https://github.com/FezV
 ### Tags
 | Tag | Description |
 |--|--|
-| latest | most recent build from the master branch |
-| x.x.x (semver) | release builds |
+| latest | stable build |
+| dev | working build (not-stable) |
 
 ## Usage
 
@@ -36,7 +36,7 @@ docker pull jkread/arkserver:latest
 To run a generic server with no configuration modifications:
 ```bash
 $ docker run -d \
-    -v steam:/home/steam/Steam \  # mounted so that workshop (mod) downloads are persisted
+    -v steam:/home/steam \  # mounted so that workshop (mod) downloads are persisted
     -v ark:/ark \  # mounted as the directory to contain the server/backup/log/config files
     -p 27015:27015 -p 27015:27015/udp \  # steam query port
     -p 7778:7778 -p 7778:7778/udp \  # gameserver port
@@ -132,7 +132,7 @@ Inside the `/ark` volume there are several directories containing server related
 | Path | Description |
 | - | - |
 | /ark/backup | Location of the zipped backups genereated from the `arkmaanger backup` command. Compressed using bz2. |
-| /ark/config | Location of server config files. More information: |
-| /ark/log | Location of the arkmanager and arkserver log files |
+| /ark/config | Location of server config files. You can place customized config files here. AllowedCheaterSteamIDs.txt, Engine.ini, Game.ini, GameUserSettings.ini |
+| /ark/log | Location of the arkmanager and arkserver log files. |
 | /ark/server | Location of the server installation performed by `steamcmd`. This will contain the ShooterGame directory and the actual server binaries. |
 | /ark/staging | Default directory for staging game and mod updates. Can be changed using in `arkmanager.cfg` |
