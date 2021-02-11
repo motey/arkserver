@@ -44,7 +44,8 @@ $ docker run -d \
     jkread/arkserver
 ```
 Docker compose sample (change or remove environment variables as the suit you):
-```version: '3'
+```yaml
+version: '3'
 volumes:
   ark:
   steam:
