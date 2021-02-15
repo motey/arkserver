@@ -134,7 +134,7 @@ trap stop TERM
 # TODO: Provide IF statement here with ENV variable
 # to allow server logs to be scraped from RCON to stdout
 # bash -c ./log.sh &
-
+steamcmd +quit
 arkmanager start --no-background --verbose &
 arkmanpid=$!
 wait $arkmanpid
