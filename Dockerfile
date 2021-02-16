@@ -4,7 +4,7 @@ USER root
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y curl cron bzip2 perl-modules lsof libc6-i386 lib32gcc1 sudo tzdata && \
+    apt-get install -y curl cron bzip2 perl-modules lsof libc6-i386 lib32gcc1 sudo tzdata rsync && \
     echo steam steam/question select "I AGREE" | debconf-set-selections && \
     echo steam steam/license note '' | debconf-set-selections && \
     apt-get install -y ca-certificates steamcmd language-pack-en
@@ -17,7 +17,7 @@ RUN curl -sL https://git.io/arkmanager | bash -s steam && \
 
 RUN mkdir /ark && \
     mkdir /arkserver
-    
+
 COPY arkmanager/arkmanager.cfg /etc/arkmanager/arkmanager.cfg
 COPY arkmanager/instance.cfg /etc/arkmanager/instances/main.cfg
 COPY run.sh /arkserver/run.sh
